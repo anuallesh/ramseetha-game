@@ -1,0 +1,221 @@
+/**
+ * Global styles for RamSeetha game
+ * Includes animations, custom utilities, and themed colors
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Root theme variables */
+:root {
+  --color-saffron: #ff9933;
+  --color-sage: #138808;
+  --color-navy: #0c1d4d;
+  --color-gold: #ffd700;
+  --color-crimson: #a41e34;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-900 text-gray-100 font-sans antialiased;
+  background: linear-gradient(135deg, #0f1729 0%, #1a2a4a 100%);
+  min-height: 100vh;
+}
+
+/* Custom card component */
+.card {
+  @apply bg-gray-800 rounded-lg border border-gray-700 shadow-lg;
+  transition: var(--transition-smooth);
+}
+
+.card:hover {
+  @apply border-saffron shadow-xl;
+  box-shadow: 0 0 20px rgba(255, 153, 51, 0.3);
+}
+
+/* Custom button variants */
+.btn-primary {
+  @apply bg-gradient-to-r from-saffron to-orange-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-all duration-200;
+}
+
+.btn-danger {
+  @apply bg-gradient-to-r from-crimson to-red-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-200;
+}
+
+.btn-success {
+  @apply bg-gradient-to-r from-sage to-emerald text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-200;
+}
+
+/* Custom badge styles */
+.badge {
+  @apply inline-block px-3 py-1 rounded-full text-sm font-semibold;
+}
+
+.badge-primary {
+  @apply bg-saffron text-gray-900;
+}
+
+.badge-success {
+  @apply bg-sage text-white;
+}
+
+.badge-danger {
+  @apply bg-crimson text-white;
+}
+
+/* Animation classes */
+.animate-slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s infinite;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-mythic {
+  background: linear-gradient(135deg, #0c1d4d 0%, #1a2a4a 50%, #0f1729 100%);
+}
+
+.bg-gradient-warm {
+  background: linear-gradient(135deg, #ff9933 0%, #ffd700 100%);
+}
+
+/* Glass morphism effect */
+.glass {
+  @apply bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10 rounded-lg;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800 rounded-lg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-saffron rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-orange-500;
+}
+
+/* Input styling */
+input,
+textarea {
+  @apply w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-saffron focus:ring-2 focus:ring-saffron focus:ring-opacity-50 transition-all duration-200;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply inline-block animate-spin;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-saffron), var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive grid */
+.grid-responsive {
+  @apply grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+/* Utility for centering content */
+.center-content {
+  @apply flex items-center justify-center;
+}
+
+/* Utility for full screen */
+.full-screen {
+  @apply w-full h-screen;
+}
+
+/* Player card shine effect */
+@keyframes shine {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 1000px 100%;
+  animation: shine 2s infinite;
+}
+
+/* Character card flip animation */
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger,
+  .btn-success {
+    @apply py-2 px-4 text-sm;
+  }
+
+  .card {
+    @apply rounded-md;
+  }
+}

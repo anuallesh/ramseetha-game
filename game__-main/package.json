@@ -1,0 +1,29 @@
+{
+  "name": "ramseetha-game",
+  "version": "1.0.0",
+  "description": "A full-stack multiplayer game inspired by Indian mythology",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm run dev\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm run build",
+    "build:server": "echo 'Server doesn't need build step'",
+    "start": "cd server && npm start"
+  },
+  "keywords": [
+    "game",
+    "multiplayer",
+    "react",
+    "socket.io",
+    "mythology",
+    "indian"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

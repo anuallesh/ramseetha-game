@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ramseetha-server
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: CLIENT_URL
+        value: https://your-vercel-domain.vercel.app # Update with actual frontend URL
