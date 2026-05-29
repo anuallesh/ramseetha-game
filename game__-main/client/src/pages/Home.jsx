@@ -80,7 +80,7 @@ export default function Home({ onCreateRoom, onJoinRoom, onCreateRoomWithBots })
                 <span className="text-gold font-bold">700 pts</span>
               </li>
               <li className="flex justify-between">
-                <span>🏹 Arjun</span>
+                <span>🏹 Shatrughna</span>
                 <span className="text-gold font-bold">600 pts</span>
               </li>
             </ul>
@@ -197,11 +197,12 @@ export default function Home({ onCreateRoom, onJoinRoom, onCreateRoomWithBots })
 
           {/* Join Room */}
           <div>
-            {!showCreateForm && !showBotsForm ? (
+            {!showJoinForm ? (
               <button
                 onClick={() => {
                   setShowJoinForm(true);
                   setShowCreateForm(false);
+                  setShowBotsForm(false);
                 }}
                 className="btn-secondary w-full"
               >
