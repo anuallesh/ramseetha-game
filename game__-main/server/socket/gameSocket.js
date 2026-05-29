@@ -208,7 +208,7 @@ export const initializeGameSocket = (io) => {
         ramGuess: null,
         roundCompleted: false,
         roundStartedAt: Date.now(),
-        roundDuration: 10,
+        roundDuration: 40,
       });
 
       const updatedRoom = roomManager.getRoom(roomCode);
