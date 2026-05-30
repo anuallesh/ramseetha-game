@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { socket } from './socket/socket';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -308,6 +309,7 @@ function App() {
           renderScreen()
         )}
       </main>
+      <Analytics />
     </div>
   );
 }
